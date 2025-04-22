@@ -16,31 +16,36 @@
         <!-- JavaScript Linking -->
         <script src="BMDevice.js"></script>
         <script src="web-ui.js"></script>
+        <script src="i18n.js"></script>
 
         <!------ Page Content ------>
 
         <!-- Header Div -->
         <div class="flexContainerH" id="headerContainer" onclick="document.getElementById('footerContainer').style.display='flex'">
-            <h1>Camera Control WebUI for Blackmagic Cameras</h1>
+            <h1 data-i18n="headerTitle">Camera Control WebUI for Blackmagic Cameras</h1>
+            <div id="languageSwitchContainer">
+                <button class="languageButton" onclick="switchLanguage('en')">English</button>
+                <button class="languageButton" onclick="switchLanguage('zh')">中文</button>
+            </div>
         </div>
 
         <!-- Camera Select Bar -->
         <div class="flexContainerH" id="cameraSelectContainer">
-            <span class="cameraSwitchLabel selectedCam"><a href="#" onclick="switchCamera(0)">CAM1</a></span>
+            <span class="cameraSwitchLabel selectedCam"><a href="#" onclick="switchCamera(0)" data-i18n="cam">CAM</a>1</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(1)">CAM2</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(1)" data-i18n="cam">CAM</a>2</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(2)">CAM3</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(2)" data-i18n="cam">CAM</a>3</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(3)">CAM4</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(3)" data-i18n="cam">CAM</a>4</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(4)">CAM5</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(4)" data-i18n="cam">CAM</a>5</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(5)">CAM6</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(5)" data-i18n="cam">CAM</a>6</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(6)">CAM7</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(6)" data-i18n="cam">CAM</a>7</span>
             <span class="camSelectSeparator">|</span>
-            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(7)">CAM8</a></span>
+            <span class="cameraSwitchLabel"><a href="#" onclick="switchCamera(7)" data-i18n="cam">CAM</a>8</span>
         </div>
 
         <!-- Camera Controls Box -->
@@ -56,9 +61,9 @@
                         <a href="#" class="ccTabLabel" onclick="">Gamma</a>
                         <a href="#" class="ccTabLabel" onclick="">Gain</a>
                     </div> -->
-                    <span style="margin-top: 0.5em;">Lift</span>
+                    <span style="margin-top: 0.5em;" data-i18n="lift">Lift</span>
                     <div class="flexContainerH" id="cameraControlColorCorrectionBottomContainer">
-                        <button class="CCResetButton circleButton" onclick="resetCC(0)" title="Reset Lift">&#10227</button>
+                        <button class="CCResetButton circleButton" onclick="resetCC(0)" title="Reset Lift" data-i18n="resetLift">&#10227</button>
                         <div class="flexContainerH" id="cameraControlColorCorrectionNumbersContainer">
                             <span contenteditable="plaintext-only" style="text-decoration-color: #dbdbdb;" class="CClumaLabel" onmousedown="CCInputHandler(0)" onkeydown="CCInputHandler(0)">0.00</span>
                             <span contenteditable="plaintext-only" style="text-decoration-color: #e64b3d;" class="CCredLabel" onmousedown="CCInputHandler(0)" onkeydown="CCInputHandler(0)">0.00</span>
@@ -68,9 +73,9 @@
                         <button id="CCHamburgerButton" class="circleButton" onclick="setCCFromUI(0)" title="Set Lift">&#10138</button>
                     </div>
 
-                    <span>Gamma</span>
+                    <span data-i18n="gamma">Gamma</span>
                     <div class="flexContainerH" id="cameraControlColorCorrectionBottomContainer">
-                        <button class="CCResetButton circleButton" onclick="resetCC(1)" title="Reset Gamma">&#10227</button>
+                        <button class="CCResetButton circleButton" onclick="resetCC(1)" title="Reset Gamma" data-i18n="resetGamma">&#10227</button>
                         <div class="flexContainerH" id="cameraControlColorCorrectionNumbersContainer">
                             <span contenteditable="plaintext-only" style="text-decoration-color: #dbdbdb;" class="CClumaLabel" onmousedown="CCInputHandler(1)" onkeydown="CCInputHandler(1)">0.00</span>
                             <span contenteditable="plaintext-only" style="text-decoration-color: #e64b3d;" class="CCredLabel" onmousedown="CCInputHandler(1)" onkeydown="CCInputHandler(1)">0.00</span>
@@ -80,9 +85,9 @@
                         <button id="CCHamburgerButton" class="circleButton" onclick="setCCFromUI(1)" title="Set Gamma">&#10138</button>
                     </div>
 
-                    <span>Gain</span>
+                    <span data-i18n="gain">Gain</span>
                     <div class="flexContainerH" id="cameraControlColorCorrectionBottomContainer">
-                        <button class="CCResetButton circleButton" onclick="resetCC(2)" title="Reset Gain">&#10227</button>
+                        <button class="CCResetButton circleButton" onclick="resetCC(2)" title="Reset Gain" data-i18n="resetGain">&#10227</button>
                         <div class="flexContainerH" id="cameraControlColorCorrectionNumbersContainer">
                             <span contenteditable="plaintext-only" style="text-decoration-color: #dbdbdb;" class="CClumaLabel" onmousedown="CCInputHandler(2)" onkeydown="CCInputHandler(2)">0.00</span>
                             <span contenteditable="plaintext-only" style="text-decoration-color: #e64b3d;" class="CCredLabel" onmousedown="CCInputHandler(2)" onkeydown="CCInputHandler(2)">0.00</span>
@@ -93,9 +98,9 @@
                     </div>
                     
 
-                    <span>Offset</span>
+                    <span data-i18n="offset">Offset</span>
                     <div class="flexContainerH" id="cameraControlColorCorrectionBottomContainer">
-                        <button class="CCResetButton circleButton" onclick="resetCC(3)" title="Reset Offset">&#10227</button>
+                        <button class="CCResetButton circleButton" onclick="resetCC(3)" title="Reset Offset" data-i18n="resetOffset">&#10227</button>
                         <div class="flexContainerH" id="cameraControlColorCorrectionNumbersContainer">
                             <span contenteditable="plaintext-only" style="text-decoration-color: #dbdbdb;" class="CClumaLabel" onmousedown="CCInputHandler(3)" onkeydown="CCInputHandler(3)">0.00</span>
                             <span contenteditable="plaintext-only" style="text-decoration-color: #e64b3d;" class="CCredLabel" onmousedown="CCInputHandler(3)" onkeydown="CCInputHandler(3)">0.00</span>
@@ -108,7 +113,7 @@
 
                 <div class="flexContainerH" id="cameraControlExposureContainer">
                     <div class="ccExposureSettingContainer">
-                        <span class="exposureControlLabel">FILTER</span>
+                        <span class="exposureControlLabel" data-i18n="filter">FILTER</span>
                         <div class="ccExposureSettingValueContainer">
                             <a class="expAdjArr" href="#" onclick="decreaseND()" id="NDL">&#9664</a>
                             <span id="ndFilterSpan" contenteditable="plaintext-only" onkeydown="NDFilterInputHandler()" onmousedown="NDFilterInputHandler()">0</span>
@@ -116,7 +121,7 @@
                         </div>
                     </div>
                     <div class="ccExposureSettingContainer">
-                        <span class="exposureControlLabel">GAIN</span>
+                        <span class="exposureControlLabel" data-i18n="exposureGain">GAIN</span>
                         <div class="ccExposureSettingValueContainer">
                             <a class="expAdjArr" href="#" onclick="decreaseGain()" id="GAL">&#9664</a>
                             <span id="gainSpan" contenteditable="plaintext-only" onkeydown="GainInputHandler()" onmousedown="GainInputHandler()">+0db</span>
@@ -124,7 +129,7 @@
                         </div>
                     </div>
                     <div class="ccExposureSettingContainer">
-                        <span class="exposureControlLabel">SHUTTER</span>
+                        <span class="exposureControlLabel" data-i18n="shutter">SHUTTER</span>
                         <div class="ccExposureSettingValueContainer">
                             <a class="expAdjArr" href="#" onclick="decreaseShutter()" id="SHL">&#9664</a>
                             <span id="shutterSpan" contenteditable="plaintext-only" onkeydown="handleShutterInput()" onmousedown="handleShutterInput()">1/50</span>
@@ -132,7 +137,7 @@
                         </div>
                     </div>
                     <div class="ccExposureSettingContainer">
-                        <span class="exposureControlLabel" onclick="swapWBMode()" title="Click here to swap between WB and Tint" id="WBLabel">BALANCE</span>
+                        <span class="exposureControlLabel" onclick="swapWBMode()" title="Click here to swap between WB and Tint" id="WBLabel" data-i18n="balance">BALANCE</span>
                         <div class="ccExposureSettingValueContainer" id="WBValueContainer">
                             <a class="expAdjArr" href="#" onclick="decreaseWhiteBalance()" id="WBL">&#9664</a>
                             <span id="whiteBalanceSpan" contenteditable="plaintext-only" onkeydown="WBInputHandler()" onmousedown="WBInputHandler()">5600K</span>
@@ -145,23 +150,23 @@
                         </div>
                     </div>
                     <div class="ccExposureSettingContainer">
-                        <button id="AWBButton" class="circleButton" title="Make the camera do an Auto Whitebalance" onclick="cameras[ci].doAutoWhitebalance()">AW</button>
+                        <button id="AWBButton" class="circleButton" title="Make the camera do an Auto Whitebalance" data-i18n="autoWhitebalance" onclick="cameras[ci].doAutoWhitebalance()">AW</button>
                     </div>
                 </div>
 
                 <div class="flexContainerH" id="cameraControlLensContainer">
                     <div class="lensSliderContainer">
-                        <span>FOCUS</span>
+                        <span data-i18n="focus">FOCUS</span>
                         <input type="range" orient="vertical" max="1" min="0" step="0.001" id="focusRange" oninput="cameras[ci].PUTdata('/lens/focus', {normalised: parseFloat(this.value)})">
-                        <button id="AFButton" class="circleButton" onclick="cameras[ci].doAutoFocus()">AF</button>
+                        <button id="AFButton" class="circleButton" onclick="cameras[ci].doAutoFocus()" data-i18n="autoFocus">AF</button>
                     </div>
                     <div class="lensSliderContainer">
-                        <span>IRIS</span>
+                        <span data-i18n="iris">IRIS</span>
                         <input type="range" orient="vertical" max="1" min="0" step="0.001" id="irisRange" oninput="cameras[ci].PUTdata('/lens/iris', {normalised: parseFloat(this.value)})">
                         <span id="apertureStopsLabel">X.X</span>
                     </div>
                     <div class="lensSliderContainer">
-                        <span>ZOOM</span>
+                        <span data-i18n="zoom">ZOOM</span>
                         <input type="range" orient="vertical" max="1" min="0" step="0.001" id="zoomRange" oninput="cameras[ci].PUTdata('/lens/zoom', {normalised: parseFloat(this.value)})">
                         <span id="zoomMMLabel">XXmm</span>
                     </div>
@@ -179,118 +184,118 @@
                         </div>
                         <div id="transportControls">
                             <!-- These will be sticky buttons for loop, single clip, record -->
-                            <button class="circleButton" onclick="loopHandler('Loop')" title="Loop" id="loopButton">&#8635</button>
-                            <button class="circleButton" onclick="loopHandler('Single Clip')" title="Single Clip" id="singleClipButton">S</button>
-                            <button class="circleButton" onclick="cameras[ci].seek(false)" title="Back">&#9204</button>
-                            <button class="circleButton" onclick="cameras[ci].seek(true)" title="Forward">&#9205</button>
-                            <button class="circleButton" onclick="cameras[ci].toggleRecord()" title="Record" style="color: red;">&#9210</button>
-                            <button class="circleButton" onclick="cameras[ci].play()" title="Play">&#9654</button>
-                            <button class="circleButton" onclick="cameras[ci].stop()" title="Stop">&#9209</button>
+                            <button class="circleButton" onclick="loopHandler('Loop')" title="Loop" id="loopButton" data-i18n="loop">&#8635</button>
+                            <button class="circleButton" onclick="loopHandler('Single Clip')" title="Single Clip" id="singleClipButton" data-i18n="singleClip">S</button>
+                            <button class="circleButton" onclick="cameras[ci].seek(false)" title="Back" data-i18n="back">&#9204</button>
+                            <button class="circleButton" onclick="cameras[ci].seek(true)" title="Forward" data-i18n="forward">&#9205</button>
+                            <button class="circleButton" onclick="cameras[ci].toggleRecord()" title="Record" style="color: red;" data-i18n="record">&#9210</button>
+                            <button class="circleButton" onclick="cameras[ci].play()" title="Play" data-i18n="play">&#9654</button>
+                            <button class="circleButton" onclick="cameras[ci].stop()" title="Stop" data-i18n="stop">&#9209</button>
                         </div>
-                        <h2 id="timecodeLabel">TIMECODE</h2>
+                        <h2 id="timecodeLabel" data-i18n="timecode">TIMECODE</h2>
                     </div>
 
                     <div class="flexContainerV" id="cameraControlExpandedBodyContainer">
                         <div class="tableControl">
-                            <h3>Connection</h3>
+                            <h3 data-i18n="connection">Connection</h3>
                             <table>
                                 <tr>
-                                    <td>Hostname</td>
+                                    <td data-i18n="hostname">Hostname</td>
                                     <td>
                                         <input type="text" placeholder=" Camera-Name-Here.local" id="hostnameInput" onclick="hostnameInputHandler()" onkeydown="hostnameInputHandler()" style="text-align: left;">
-                                        <button onclick="initCamera()">Connect</button>
+                                        <button onclick="initCamera()" data-i18n="connect">Connect</button>
                                         <input type="checkbox" id="secureCheckbox">
-                                        <span id="secureCheckboxLabel">Use HTTPS</span>
+                                        <span id="secureCheckboxLabel" data-i18n="useHttps">Use HTTPS</span>
                                         <span id="connectionErrorSpan"></span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Send API Call</td>
+                                    <td data-i18n="sendApiCall">Send API Call</td>
                                     <td>
                                         <input type="radio" id="requestTypeGET" value="GET" name="manualRequestType" checked>
                                         <label for="requestTypeGET">GET</label>
                                         <input type="radio" id="requestTypePUT" value="PUT" name="manualRequestType">
                                         <label for="requestTypePUT">PUT</label>
 
-                                        <input type="text" id="manualRequestEndpointLabel" placeholder="request endpoint">
-                                        <input type="text" id="manualRequestBodyLabel" placeholder="request body">
+                                        <input type="text" id="manualRequestEndpointLabel" placeholder="request endpoint" data-i18n="requestEndpoint">
+                                        <input type="text" id="manualRequestBodyLabel" placeholder="request body" data-i18n="requestBody">
                                         
-                                        <button onclick="manualAPICall()">Send API Request</button>
+                                        <button onclick="manualAPICall()" data-i18n="sendApiRequest">Send API Request</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <p id="manualRequestResponseP">Send manual API requests using the above controls. See <a href="https://documents.blackmagicdesign.com/DeveloperManuals/RESTAPIforBlackmagicCameras.pdf?_v=1696143610000" target="_blank" style="color: #6e6e6e;">documentation</a> for details.</p>
+                                        <p id="manualRequestResponseP" data-i18n="apiManualInfo">Send manual API requests using the above controls. See <a href="https://documents.blackmagicdesign.com/DeveloperManuals/RESTAPIforBlackmagicCameras.pdf?_v=1696143610000" target="_blank" style="color: #6e6e6e;">documentation</a> for details.</p>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         
                         <div class="tableControl">
-                            <h3>Presets</h3>
+                            <h3 data-i18n="presets">Presets</h3>
                             <table>
                                 <tr>
-                                    <td>Preset Select</td>
+                                    <td data-i18n="presetSelect">Preset Select</td>
                                     <td>
                                         <select id="presetsDropDown" onmousedown="unsavedChanges.push('presets')" onchange="presetInputHandler()">
                                             <!-- Auto-populated by updateUIPresets() -->
                                         </select>
                                     </td>
                                     <td>
-                                        <button onclick="presetInputHandler()">Restore from Preset</button>
+                                        <button onclick="presetInputHandler()" data-i18n="restoreFromPreset">Restore from Preset</button>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         
                         <div class="tableControl">
-                            <h3>Exposure</h3>
+                            <h3 data-i18n="exposure">Exposure</h3>
                             <table>
                                 <tr>
-                                    <td>ISO</td>
+                                    <td data-i18n="iso">ISO</td>
                                     <td><input type="number" id="ISOInput" step="100" onkeydown="ISOInputHandler()" onmousedown="unsavedChanges.push('ISO')"></td>
                                 </tr>
                                 <tr>
-                                    <td>AE Mode</td>
+                                    <td data-i18n="aeMode">AE Mode</td>
                                     <td>
                                         <select id="AEmodeDropDown" onmousedown="unsavedChanges.push('AutoExposure')">
-                                            <option value="Off">Off</option>
-                                            <option value="Continuous">Continuous</option>
-                                            <option value="OneShot">One-Shot</option>
+                                            <option value="Off" data-i18n="off">Off</option>
+                                            <option value="Continuous" data-i18n="continuous">Continuous</option>
+                                            <option value="OneShot" data-i18n="oneShot">One-Shot</option>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>AE Type</td>
+                                    <td data-i18n="aeType">AE Type</td>
                                     <td>
                                         <select id="AEtypeDropDown" onmousedown="unsavedChanges.push('AutoExposure')">
-                                            <option value="">None</option>
-                                            <option value="Iris">Iris Only</option>
-                                            <option value="Shutter">Shutter Only</option>
-                                            <option value="Shutter,Iris">Shutter + Iris</option>
-                                            <option value="Iris,Shutter">Iris + Shutter</option>
+                                            <option value="" data-i18n="none">None</option>
+                                            <option value="Iris" data-i18n="irisOnly">Iris Only</option>
+                                            <option value="Shutter" data-i18n="shutterOnly">Shutter Only</option>
+                                            <option value="Shutter,Iris" data-i18n="shutterAndIris">Shutter + Iris</option>
+                                            <option value="Iris,Shutter" data-i18n="irisAndShutter">Iris + Shutter</option>
                                         </select>
                                     </td>
                                 </tr>
                             </table>
-                            <button style="margin: 2vh 0 0 3.5vw;" onclick="AEmodeInputHandler()">Set AE Mode</button>
+                            <button style="margin: 2vh 0 0 3.5vw;" onclick="AEmodeInputHandler()" data-i18n="setAeMode">Set AE Mode</button>
                         </div>
                         
                         <div class="tableControl">
-                            <h3>Contrast</h3>
+                            <h3 data-i18n="contrast">Contrast</h3>
                             <table>
                                 <tr>
-                                    <td>Pivot</td>
+                                    <td data-i18n="pivot">Pivot</td>
                                     <td><input type="range" max="1" min="0" step="0.001" id="CCcontrastPivotRange" oninput="cameras[ci].PUTdata('/colorCorrection/contrast', {pivot: parseFloat(this.value)}); unsavedChanges = unsavedChanges.filter((e) => {return !e.includes('CC4')});"></td>
                                     <td>
                                         <span id="CCcontrastPivotLabel" contenteditable="plaintext-only" onkeydown="CCInputHandler(4)" onmousedown="CCInputHandler(4)">0</span>
                                     </td>
                                     <td rowspan="2">
-                                        <button class="CCResetButton circleButton" onclick="resetCC(4)" title="Reset Contrast">&#10227</button>
+                                        <button class="CCResetButton circleButton" onclick="resetCC(4)" title="Reset Contrast" data-i18n="resetContrast">&#10227</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Adjust</td>
+                                    <td data-i18n="adjust">Adjust</td>
                                     <td><input type="range" max="2" min="0" step="0.001" id="CCcontrastAdjustRange" oninput="cameras[ci].PUTdata('/colorCorrection/contrast', {adjust: parseFloat(this.value)}); unsavedChanges = unsavedChanges.filter((e) => {return !e.includes('CC4')});"></td>
                                     <td>
                                         <span id="CCcontrastAdjustLabel" contenteditable="plaintext-only" onkeydown="CCInputHandler(4)" onmousedown="CCInputHandler(4)">0</span>
@@ -300,27 +305,27 @@
                         </div>
                         
                         <div class="tableControl">
-                            <h3>Color</h3>
+                            <h3 data-i18n="color">Color</h3>
                             <table>
                                 <tr>
-                                    <td>Hue</td>
+                                    <td data-i18n="hue">Hue</td>
                                     <td><input type="range" max="1" min="-1" step="0.001" id="CChueRange" oninput="cameras[ci].PUTdata('/colorCorrection/color', {hue: parseFloat(this.value)}); unsavedChanges = unsavedChanges.filter((e) => {return !e.includes('CC5')});"></td>
                                     <td>
                                         <span id="CCcolorHueLabel" contenteditable="plaintext-only" onkeydown="CCInputHandler(5)" onmousedown="CCInputHandler(5)">0</span>
                                     </td>
                                     <td rowspan="3">
-                                        <button class="CCResetButton circleButton" onclick="resetCC(5)" title="Reset Color">&#10227</button>
+                                        <button class="CCResetButton circleButton" onclick="resetCC(5)" title="Reset Color" data-i18n="resetColor">&#10227</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Saturation</td>
+                                    <td data-i18n="saturation">Saturation</td>
                                     <td><input type="range" max="2" min="0" step="0.001" id="CCsaturationRange" oninput="cameras[ci].PUTdata('/colorCorrection/color', {saturation: parseFloat(this.value)}); unsavedChanges = unsavedChanges.filter((e) => {return !e.includes('CC5')});"></td>
                                     <td>
                                         <span id="CCcolorSatLabel" contenteditable="plaintext-only" onkeydown="CCInputHandler(5)" onmousedown="CCInputHandler(5)">0</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Luma Contribution</td>
+                                    <td data-i18n="lumaContribution">Luma Contribution</td>
                                     <td><input type="range" max="1" min="0" step="0.001" id="CClumaContributionRange" oninput="cameras[ci].PUTdata('/colorCorrection/lumaContribution', {lumaContribution: parseFloat(this.value)}); unsavedChanges = unsavedChanges.filter((e) => {return !e.includes('CC5')});"></td>
                                     <td>
                                         <span id="CCcolorLCLabel" contenteditable="plaintext-only" onkeydown="CCInputHandler(5)" onmousedown="CCInputHandler(5)">0</span>
@@ -340,9 +345,9 @@
                 <span id="activeElementSpan"></span>
             </div>
             <div id="footerLinks">
-                <span><a id="documentationLink" href="#" target="_blank">YAML Documentation</a></span>
-                <span><a id="mediaManagerLink" href="#" target="_blank">Web Media Manager</a></span>
-                <span><a id="githubLink" href="https://github.com/DylanSpeiser/BM-Camera-Control-WebUI" target="_blank">GitHub</a></span>
+                <span><a id="documentationLink" href="#" target="_blank" data-i18n="documentation">YAML Documentation</a></span>
+                <span><a id="mediaManagerLink" href="#" target="_blank" data-i18n="mediaManager">Web Media Manager</a></span>
+                <span><a id="githubLink" href="https://github.com/DylanSpeiser/BM-Camera-Control-WebUI" target="_blank" data-i18n="github">GitHub</a></span>
             </div>
         </div>
     </body>

@@ -22,7 +22,14 @@ function bodyOnLoad() {
     // prefill camera hostname (or IP address)
     document.getElementById("hostnameInput").value = localStorage.getItem("camerahostname_"+ci.toString());
     if ( localStorage.getItem("camerasecurity_"+ci.toString()) === 'true' ) {
-	document.getElementById("secureCheckbox").checked = true
+        document.getElementById("secureCheckbox").checked = true
+    }
+    
+    // 初始化界面语言
+    if (typeof applyLanguage === 'function') {
+        const savedLanguage = localStorage.getItem('uiLanguage') || 'en';
+        applyLanguage(savedLanguage);
+        highlightActiveLanguageButton();
     }
 }
 

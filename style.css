@@ -468,3 +468,27 @@ table, td {
 td, tr {
     align-items: center;
 }
+
+/* Language Switch Container */
+#languageSwitchContainer {
+    display: flex;
+    margin-left: auto;
+    margin-right: 1.3vw;
+    align-items: center;
+}
+
+.languageButton {
+    margin: 0 0.5em;
+    padding: 0.3em 0.6em;
+    background: rgba(230, 108, 1, 0.2);
+    border: 1px solid #e66c01;
+    font-size: 0.9em;
+}
+
+.languageButton:hover {
+    background: rgba(230, 108, 1, 0.4);
+}
+
+.languageButton.active {
+    background: rgba(230, 108, 1, 0.7);
+}
